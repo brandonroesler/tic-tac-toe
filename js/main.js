@@ -21,10 +21,9 @@ init();
 
 function handleClick(evt) {
     const marker = evt.target;
-    const colIdx = parseInt(marker.id.replace('c', ''));
-    if (isNaN(colIdx) || winner) return;
-    const rowIdx = board[colIdx].indexOf(0);
-    if (rowIdx === -1) return;
+    const colIdx = parseInt(marker.id.slice(1, 2));
+    const rowIdx = parseInt(marker.id.slice(3));
+    if(board[colIdx][rowIdx]) return;
     board[colIdx][rowIdx] = turn;
     /* 
     winner = getWinner();
